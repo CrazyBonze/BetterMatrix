@@ -17,9 +17,17 @@ Matrix<T>::~Matrix()
 template <class T>
 void Matrix<T>::print(ostream& os)
 {
+  unsigned int i,k;
   os << "[";
-  for(unsigned int i = FRONT; i < M_SIZE; i++)
+  for(i = k = FRONT; i < M_SIZE; i++, k++)
+  {
+    if(k == M_Y_DIM)
+    {
+      cout << endl << " ";
+      k = 0;
+    }
     os << M_DATA[i] << (i < BACK ? ',':']');
+  }
   os << endl;
 }
 
