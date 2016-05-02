@@ -26,6 +26,7 @@
 *.exe
 *.out
 *.app
+Matrix_test/test
 
 # Swap files
 *.swp
