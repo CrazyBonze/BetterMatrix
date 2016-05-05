@@ -43,6 +43,34 @@ T& Matrix<T>::back()
   return M_DATA[BACK];
 }
 
+// TODO finish and test
+template <class T>
+T& Matrix<T>::left(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row,(col == 0 ? M_Y_DIM - 1 : col - 1));
+}
+
+// TODO finish and test
+template <class T>
+T& Matrix<T>::right(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row,(col < M_Y_DIM + 1 ? col + 1 : 0));
+}
+
+// TODO finish and test
+template <class T>
+T& Matrix<T>::up(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row, col);
+}
+
+// TODO finish and test
+template <class T>
+T& Matrix<T>::down(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row, col);
+}
+
 template <class T>
 void Matrix<T>::fill(T value)
 {

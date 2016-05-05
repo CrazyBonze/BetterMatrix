@@ -15,6 +15,10 @@ class Matrix
     void print(ostream& os);
     T& front();
     T& back();
+    T& left(const unsigned int row, const unsigned int col);
+    T& right(const unsigned int row, const unsigned int col);
+    T& up(const unsigned int row, const unsigned int col);
+    T& down(const unsigned int row, const unsigned int col);
     void fill(T value);
     unsigned int size() const;
     unsigned int X_size() const;
