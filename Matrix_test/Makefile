@@ -13,7 +13,7 @@ clean:
 	rm -f $(TESTS) *.o
 
 test01: test01.o
-	$(CXX) $(CPPWARNING) $(CPPFLAGS) -o test01 test01.o
+	$(CXX) $(CPPWARNING) $(CPPFLAGS) -o test01.out test01.o
 
 test01.o: test01.cpp $(MATRIXCLASS)
 	$(CXX) $(CPPWARNING) $(CPPFLAGS) -c test01.cpp
