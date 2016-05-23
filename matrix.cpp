@@ -1,7 +1,6 @@
 #include "matrix.h"
 
-// Public Functions
-template <class T>
+/* public */ template <class T>
 Matrix<T>::Matrix(const unsigned int row, const unsigned int col)
   : M_X_DIM       (row),
     M_Y_DIM       (col),
@@ -10,11 +9,11 @@ Matrix<T>::Matrix(const unsigned int row, const unsigned int col)
     BACK          (M_SIZE - 1)
 { }
 
-template <class T>
+/* public */ template <class T>
 Matrix<T>::~Matrix()
 { }
 
-template <class T>
+/* public */ template <class T>
 void Matrix<T>::print(ostream& os)
 {
   unsigned int i,k;
@@ -31,93 +30,92 @@ void Matrix<T>::print(ostream& os)
   os << endl;
 }
 
-template <class T>
+/* public */ template <class T>
 T& Matrix<T>::front()
 {
   return M_DATA[FRONT];
 }
 
-template <class T>
+/* public */ template <class T>
 T& Matrix<T>::back()
 {
   return M_DATA[BACK];
 }
 
 // TODO finish and test
-template <class T>
-T& Matrix<T>::left(const unsigned int row, const unsigned int col)
-{
-  return M_DATA(row,(col == 0 ? M_Y_DIM - 1 : col - 1));
-}
-
-// TODO finish and test
-template <class T>
-T& Matrix<T>::right(const unsigned int row, const unsigned int col)
-{
-  return M_DATA(row,(col < M_Y_DIM + 1 ? col + 1 : 0));
-}
-
-// TODO finish and test
-template <class T>
+/* public */ template <class T>
 T& Matrix<T>::up(const unsigned int row, const unsigned int col)
 {
   return M_DATA(row, col);
 }
 
 // TODO finish and test
-template <class T>
+/* public */ template <class T>
 T& Matrix<T>::down(const unsigned int row, const unsigned int col)
 {
   return M_DATA(row, col);
 }
 
-template <class T>
+// TODO finish and test
+/* public */ template <class T>
+T& Matrix<T>::left(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row,(col == 0 ? M_Y_DIM - 1 : col - 1));
+}
+
+// TODO finish and test
+/* public */ template <class T>
+T& Matrix<T>::right(const unsigned int row, const unsigned int col)
+{
+  return M_DATA(row,(col < M_Y_DIM + 1 ? col + 1 : 0));
+}
+
+/* public */ template <class T>
 void Matrix<T>::fill(T value)
 {
   for(unsigned int i = FRONT; i < M_SIZE; i++)
     M_DATA[i] = value;
 }
 
-template <class T>
+/* public */ template <class T>
 unsigned int Matrix<T>::size() const
 {
   return M_SIZE;
 }
 
-template <class T>
+/* public */ template <class T>
 unsigned int Matrix<T>::X_size() const
 {
   return M_X_DIM;
 }
 
-template <class T>
+/* public */ template <class T>
 unsigned int Matrix<T>::Y_size() const
 {
   return M_Y_DIM;
 }
 
-template <class T>
+/* public */ template <class T>
 unsigned int Matrix<T>::row_size() const
 {
   return X_size();
 }
 
-template <class T>
+/* public */ template <class T>
 unsigned int Matrix<T>::col_size() const
 {
   return Y_size();
 }
 
-// Private Functions
 
-template <class T>
+/* private */ template <class T>
 unsigned int Matrix<T>::get_index(unsigned int row, unsigned int col) const
 {
   check_args(row, col);
   return row * M_Y_DIM + col;
 }
 
-template <class T>
+/* private */ template <class T>
 bool Matrix<T>::check_args(unsigned int row, unsigned int col) const
 {
   assert(row < M_X_DIM);
